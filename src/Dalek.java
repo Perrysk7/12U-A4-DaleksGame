@@ -1,9 +1,9 @@
 
-/** This class models a Delek in the game. A Delek has
+/** This class models a Dalek in the game. A Dalek has
  *  a position and can advance towards the Doctor.
  */
 public class Dalek {
-
+    // instance variables 
     private int row, col;
     private boolean hasCrashed;
 
@@ -14,7 +14,10 @@ public class Dalek {
      * @param theCol The column this Dalek starts at.
      */
     public Dalek(int theRow, int theCol) {
-
+        // assigning the variables 
+        this.row = theRow; 
+        this.col = theCol; 
+        hasCrashed = false; 
     }
 
     /**
@@ -26,8 +29,21 @@ public class Dalek {
      * @param doc The Doctor to move towards.
      */
     public void advanceTowards(Doctor doc) {
-
-    }
+            // if the doctor's position is greater then the dalek's position... add one 
+            if(doc.getRow() > this.row){
+                row++; 
+            // otherwise subtract one from the row     
+            } else if (doc.getRow() < this.row){
+                row--; 
+            }
+            // if the doc's position is greater than the dalek's position... add one 
+            if(doc.getCol() > this.col){
+                col++; 
+            // otherwise subtract one from the col     
+            } else if(doc.getCol() < this.col){
+                col--; 
+            }  
+         }
 
     /**
      * Returns the row of this Dalek.
@@ -35,7 +51,8 @@ public class Dalek {
      * @return This Dalek's row.
      */
     public int getRow() {
-
+        // returning...
+        return this.row; 
     }
 
     /**
@@ -44,13 +61,16 @@ public class Dalek {
      * @return This Dalek's column.
      */
     public int getCol() {
-
+        // returning...
+        return this.col; 
     }
 
     /**
      * Sets the Dalek to be in a crashed state.
      */
     public void crash() {
+        // returninng "hasCrashed" true
+        this.hasCrashed = true; 
 
     }
 
@@ -60,7 +80,7 @@ public class Dalek {
      * @return true if this Dalek has crashed, false otherwise
      */
     public boolean hasCrashed() {
-
+        // returning hasCrashed
+        return this.hasCrashed; 
     }
-
 }
